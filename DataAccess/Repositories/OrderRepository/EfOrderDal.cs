@@ -22,7 +22,8 @@ namespace DataAccess.Repositories.OrderRepository
                                  OrderNumber = order.OrderNumber,
                                  Status = order.Status,
                                  Quantity = context.OrderDetails.Where(p => p.OrderId == order.Id).Sum(s => s.Quantity),
-                                 Total = context.OrderDetails.Where(p => p.OrderId == order.Id).Sum(s => s.Price) * context.OrderDetails.Where(p => p.OrderId == order.Id).Sum(s => s.Quantity)
+                                 Total = context.OrderDetails.Where(p => p.OrderId == order.Id).Sum(s => s.Price) * context.OrderDetails.Where(p => p.OrderId == order.Id).Sum(s => s.Quantity),
+                                 Price = context.OrderDetails.Where(p => p.OrderId == order.Id).Sum(s => s.Price),
                              };
                 return await result.OrderByDescending(p => p.Id).ToListAsync();
             }

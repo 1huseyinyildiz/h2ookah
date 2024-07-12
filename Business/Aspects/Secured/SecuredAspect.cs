@@ -31,7 +31,7 @@ namespace Business.Aspects.Secured
                 {
                     if (roleClaims.Contains(role))
                     {
-                        ret urn;
+                        return;
                     }
                 }
                 throw new Exception("You don't have access");

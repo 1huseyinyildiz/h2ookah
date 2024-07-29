@@ -34,7 +34,7 @@ namespace Business.Aspects.Secured
                         return;
                     }
                 }
-                throw new Exception("İşlem için yetkiniz bulunmuyor");
+                throw new Exception("You don't have access");
             }
             else
             {
